@@ -1,0 +1,4 @@
+enum PlayerTurnPhase {
+  discard,
+  draw,
+}

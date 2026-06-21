@@ -512,24 +512,30 @@ bool isEdgeCard(
                     : 1,
           ),
           boxShadow: [
-            BoxShadow(
-              blurRadius: 8,
-              color: Colors.black
-                  .withOpacity(0.3),
-            ),
-          ],
+  BoxShadow(
+    blurRadius: 12,
+    spreadRadius:
+        isPower ? 2 : 0,
+    color: isPower
+        ? _powerGlow(card)
+        : Colors.black
+            .withOpacity(0.3),
+  ),
+],
         ),
         child: Center(
           child: Text(
             cardLabel(card),
             textAlign:
                 TextAlign.center,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight:
-                  FontWeight.bold,
-              fontSize: 16,
-            ),
+            style: TextStyle(
+  color: _cardColor(card),
+  fontWeight:
+      FontWeight.bold,
+  fontSize: card.isJoker
+      ? 18
+      : 16,
+),
           ),
         ),
       ),
